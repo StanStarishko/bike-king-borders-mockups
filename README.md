@@ -13,19 +13,19 @@ This repository contains responsive digital mockups for **Bike King Borders**, a
 
 ## 🌐 Live Demo
 
-**Main Navigation:** [View All Mockups](https://your-username.github.io/bike-king-borders-mockups/)
+**Main Navigation:** [View All Mockups](https://stanstarishko.github.io/bike-king-borders-mockups/)
 
 ### 📱 Individual Page Mockups
 
 | Page | Desktop | Mobile | Description |
 |------|---------|--------|-------------|
-| 🏠 **Home** | [View Desktop](https://your-username.github.io/bike-king-borders-mockups/mockups/01_home_mockup.html) | Responsive | Hero section, trail slideshow, service overview |
-| 🚲 **Bikes** | [View Desktop](https://your-username.github.io/bike-king-borders-mockups/mockups/02_bikes_mockup.html) | Responsive | Product catalogue with filtering and sorting |
-| 🛡️ **Accessories** | [View Desktop](https://your-username.github.io/bike-king-borders-mockups/mockups/03_accessories_mockup.html) | Responsive | Categorised accessories and clothing |
-| 🎉 **Offers** | [View Desktop](https://your-username.github.io/bike-king-borders-mockups/mockups/04_offers_mockup.html) | Responsive | Monthly specials and promotional content |
-| 📞 **Contact** | [View Desktop](https://your-username.github.io/bike-king-borders-mockups/mockups/05_contact_mockup.html) | Responsive | Contact form, location, and opening hours |
-| 🔐 **Login/Register** | [View Desktop](https://your-username.github.io/bike-king-borders-mockups/mockups/06_login_register_mockup.html) | Responsive | User authentication with GDPR compliance |
-| 🛠️ **Admin Panel** | [View Desktop](https://your-username.github.io/bike-king-borders-mockups/mockups/07_admin_panel_mockup.html) | Responsive | Staff administration interface |
+| 🏠 **Home** | [View Desktop](https://stanstarishko.github.io/bike-king-borders-mockups/mockups/01_home_mockup.html) | Responsive | Hero section, trail slideshow, service overview |
+| 🚲 **Bikes** | [View Desktop](https://stanstarishko.github.io/bike-king-borders-mockups/mockups/02_bikes_mockup.html) | Responsive | Product catalogue with filtering and sorting |
+| 🛡️ **Accessories** | [View Desktop](https://stanstarishko.github.io/bike-king-borders-mockups/mockups/03_accessories_mockup.html) | Responsive | Categorised accessories and clothing |
+| 🎉 **Offers** | [View Desktop](https://stanstarishko.github.io/bike-king-borders-mockups/mockups/04_offers_mockup.html) | Responsive | Monthly specials and promotional content |
+| 📞 **Contact** | [View Desktop](https://stanstarishko.github.io/bike-king-borders-mockups/mockups/05_contact_mockup.html) | Responsive | Contact form, location, and opening hours |
+| 🔐 **Login/Register** | [View Desktop](https://stanstarishko.github.io/bike-king-borders-mockups/mockups/06_login_register_mockup.html) | Responsive | User authentication with GDPR compliance |
+| 🛠️ **Admin Panel** | [View Desktop](https://stanstarishko.github.io/bike-king-borders-mockups/mockups/07_admin_panel_mockup.html) | Responsive | Staff administration interface |
 
 ## 🎨 Design Features
 
@@ -157,9 +157,9 @@ This project is created for educational purposes. The design and code are availa
 ---
 
 **🔗 Quick Links:**
-- [View All Mockups](https://your-username.github.io/bike-king-borders-mockups/)
-- [Home Page Mockup](https://your-username.github.io/bike-king-borders-mockups/mockups/01_home_mockup.html)
-- [Bikes Catalogue](https://your-username.github.io/bike-king-borders-mockups/mockups/02_bikes_mockup.html)
-- [Contact Information](https://your-username.github.io/bike-king-borders-mockups/mockups/05_contact_mockup.html)
+- [View All Mockups](https://stanstarishko.github.io/bike-king-borders-mockups/)
+- [Home Page Mockup](https://stanstarishko.github.io/bike-king-borders-mockups/mockups/01_home_mockup.html)
+- [Bikes Catalogue](https://stanstarishko.github.io/bike-king-borders-mockups/mockups/02_bikes_mockup.html)
+- [Contact Information](https://stanstarishko.github.io/bike-king-borders-mockups/mockups/05_contact_mockup.html)
 
 *Built with ❤️ for the cycling community in Glasgow, Scotland*
