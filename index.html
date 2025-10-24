@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike King Borders - Digital Mockups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #2c5530 0%, #3d7043 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+        }
+        
+        h1 {
+            color: #2c5530;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #6c757d;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .description {
+            color: #495057;
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .mockups-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .mockup-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mockup-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .mockup-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #2c5530 0%, #3d7043 100%);
+        }
+        
+        .mockup-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .mockup-title {
+            color: #2c5530;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .mockup-description {
+            color: #6c757d;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .mockup-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .mockup-features li {
+            color: #495057;
+            font-size: 13px;
+            padding: 4px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .mockup-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .view-mockup-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #2c5530 0%, #3d7043 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(44,85,48,0.3);
+        }
+        
+        .view-mockup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44,85,48,0.4);
+            text-decoration: none;
+            color: white;
+        }
+        
+        .device-indicators {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .device-indicator {
+            background: #f8f9fa;
+            color: #6c757d;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .footer-text {
+            color: #6c757d;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .github-link {
+            color: #2c5530;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .github-link:hover {
+            text-decoration: underline;
+        }
+        
+        .project-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .project-info h3 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+        
+        .project-info p {
+            color: #424242;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .mockups-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">🚴</div>
+            <h1>Bike King Borders</h1>
+            <p class="subtitle">Digital Mockups & Prototypes</p>
+            <p class="description">
+                Welcome to the digital mockup showcase for Bike King Borders, a cycling business based in Glasgow, Scotland. 
+                These interactive prototypes demonstrate the proposed website design featuring responsive layouts for both desktop and mobile devices.
+            </p>
+            
+            <div class="project-info">
+                <h3>📋 Project Overview</h3>
+                <p>
+                    This collection showcases 7 key pages of the proposed Bike King Borders website, each designed with responsive 
+                    layouts to ensure optimal viewing across all devices. The mockups feature a professional outdoor/adventure 
+                    aesthetic whilst maintaining user-friendly navigation and comprehensive product information display.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Mockups Grid -->
+        <div class="mockups-grid">
+            
+            <!-- Home Page -->
+            <div class="mockup-card">
+                <div class="mockup-icon">🏠</div>
+                <h2 class="mockup-title">Home Page</h2>
+                <p class="mockup-description">
+                    The main landing page featuring hero section, trail photo slideshow, and overview of services.
+                </p>
+                <ul class="mockup-features">
+                    <li>Hero section with call-to-action</li>
+                    <li>Interactive trail photo slideshow</li>
+                    <li>Service highlights and store information</li>
+                    <li>Clean navigation with keyboard shortcuts</li>
+                </ul>
+                <a href="mockups/01_home_mockup.html" class="view-mockup-btn" target="_blank">View Home Page</a>
+                <div class="device-indicators">
+                    <span class="device-indicator">💻 Desktop</span>
+                    <span class="device-indicator">📱 Mobile</span>
+                </div>
+            </div>
+            
+            <!-- Bikes Page -->
+            <div class="mockup-card">
+                <div class="mockup-icon">🚲</div>
+                <h2 class="mockup-title">Bikes Collection</h2>
+                <p class="mockup-description">
+                    Product catalogue showcasing road, mountain, and hybrid bicycles with filtering and sorting capabilities.
+                </p>
+                <ul class="mockup-features">
+                    <li>Advanced filtering sidebar</li>
+                    <li>Product grid with detailed information</li>
+                    <li>Price sorting and brand filters</li>
+                    <li>Responsive product cards</li>
+                </ul>
+                <a href="mockups/02_bikes_mockup.html" class="view-mockup-btn" target="_blank">View Bikes Page</a>
+                <div class="device-indicators">
+                    <span class="device-indicator">💻 Desktop</span>
+                    <span class="device-indicator">📱 Mobile</span>
+                </div>
+            </div>
+            
+            <!-- Accessories Page -->
+            <div class="mockup-card">
+                <div class="mockup-icon">🛡️</div>
+                <h2 class="mockup-title">Accessories & Clothing</h2>
+                <p class="mockup-description">
+                    Comprehensive accessories catalogue organised by category with symmetric layout design.
+                </p>
+                <ul class="mockup-features">
+                    <li>Category-based organisation</li>
+                    <li>Safety equipment and clothing sections</li>
+                    <li>Maintenance tools and electronics</li>
+                    <li>Balanced two-column layout</li>
+                </ul>
+                <a href="mockups/03_accessories_mockup.html" class="view-mockup-btn" target="_blank">View Accessories</a>
+                <div class="device-indicators">
+                    <span class="device-indicator">💻 Desktop</span>
+                    <span class="device-indicator">📱 Mobile</span>
+                </div>
+            </div>
+            
+            <!-- Offers Page -->
+            <div class="mockup-card">
+                <div class="mockup-icon">🎉</div>
+                <h2 class="mockup-title">Special Offers</h2>
+                <p class="mockup-description">
+                    Monthly special offers and promotions with featured deals and quick offer highlights.
+                </p>
+                <ul class="mockup-features">
+                    <li>Featured deal of the month</li>
+                    <li>Quick offers sidebar</li>
+                    <li>Promotional pricing display</li>
+                    <li>Engaging visual hierarchy</li>
+                </ul>
+                <a href="mockups/04_offers_mockup.html" class="view-mockup-btn" target="_blank">View Offers</a>
+                <div class="device-indicators">
+                    <span class="device-indicator">💻 Desktop</span>
+                    <span class="device-indicator">📱 Mobile</span>
+                </div>
+            </div>
+            
+            <!-- Contact Page -->
+            <div class="mockup-card">
+                <div class="mockup-icon">📞</div>
+                <h2 class="mockup-title">Contact Information</h2>
+                <p class="mockup-description">
+                    Contact form, store location, opening hours, and integrated map for customer convenience.
+                </p>
+                <ul class="mockup-features">
+                    <li>Contact form with validation</li>
+                    <li>Store location and opening hours</li>
+                    <li>Map integration placeholder</li>
+                    <li>Mobile-optimised quick contact buttons</li>
+                </ul>
+                <a href="mockups/05_contact_mockup.html" class="view-mockup-btn" target="_blank">View Contact</a>
+                <div class="device-indicators">
+                    <span class="device-indicator">💻 Desktop</span>
+                    <span class="device-indicator">📱 Mobile</span>
+                </div>
+            </div>
+            
+            <!-- Login/Register Page -->
+            <div class="mockup-card">
+                <div class="mockup-icon">🔐</div>
+                <h2 class="mockup-title">Login & Registration</h2>
+                <p class="mockup-description">
+                    Secure user authentication with GDPR compliance and member benefit information.
+                </p>
+                <ul class="mockup-features">
+                    <li>Side-by-side login and registration forms</li>
+                    <li>GDPR compliance checkboxes</li>
+                    <li>Password requirements and security info</li>
+                    <li>Mobile-friendly tab interface</li>
+                </ul>
+                <a href="mockups/06_login_register_mockup.html" class="view-mockup-btn" target="_blank">View Authentication</a>
+                <div class="device-indicators">
+                    <span class="device-indicator">💻 Desktop</span>
+                    <span class="device-indicator">📱 Mobile</span>
+                </div>
+            </div>
+            
+            <!-- Admin Panel -->
+            <div class="mockup-card">
+                <div class="mockup-icon">🛠️</div>
+                <h2 class="mockup-title">Admin Panel</h2>
+                <p class="mockup-description">
+                    Staff administration interface for managing products, users, and website content.
+                </p>
+                <ul class="mockup-features">
+                    <li>Dashboard with key statistics</li>
+                    <li>User management table</li>
+                    <li>Quick action sidebar</li>
+                    <li>Security and activity monitoring</li>
+                </ul>
+                <a href="mockups/07_admin_panel_mockup.html" class="view-mockup-btn" target="_blank">View Admin Panel</a>
+                <div class="device-indicators">
+                    <span class="device-indicator">💻 Desktop</span>
+                    <span class="device-indicator">📱 Mobile</span>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-text">
+                <strong>Bike King Borders - Digital Mockups</strong><br>
+                These prototypes are part of a web development project showcasing responsive design principles 
+                and user experience considerations for a cycling business website.<br><br>
+                
+                <strong>📱 Responsive Design:</strong> All mockups feature both desktop and mobile layouts<br>
+                <strong>🎨 Design System:</strong> Consistent branding with outdoor/adventure aesthetic<br>
+                <strong>⌨️ Accessibility:</strong> Keyboard navigation support (H, C, B, A, O keys)<br><br>
+                
+                <a href="https://github.com/your-username/bike-king-borders-mockups" class="github-link" target="_blank">
+                    📂 View Source Code on GitHub
+                </a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

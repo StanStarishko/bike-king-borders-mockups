@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike King Borders - Bikes Page Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+        
+        .mockup-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .mockup-title {
+            text-align: center;
+            color: #2c5530;
+            margin-bottom: 30px;
+            font-size: 32px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .prototype-badge {
+            background: rgba(220, 53, 69, 0.9);
+            color: white;
+            padding: 8px 20px;
+            display: inline-block;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        
+        .device-showcase {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .device-frame {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        .device-frame::before {
+            content: 'PROTOTYPE';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #dc3545;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .desktop-frame {
+            width: 900px;
+        }
+        
+        .mobile-frame {
+            width: 340px;
+        }
+        
+        .device-label {
+            background: #17a2b8;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 0 -20px;
+        }
+        
+        .screen {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 0 0 10px 10px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-height: 800px;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #2c5530 0%, #3d7043 100%);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .logo-text {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+        
+        .nav-link.active {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        
+        .btn-primary {
+            background: #ffc107;
+            color: #2c5530;
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid white;
+        }
+        
+        /* Page Content */
+        .page-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            overflow-x: hidden;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 30px;
+        }
+        
+        .sidebar h3 {
+            color: #2c5530;
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-group {
+            margin-bottom: 20px;
+        }
+        
+        .filter-group h4 {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        
+        .filter-option input[type="checkbox"] {
+            cursor: pointer;
+        }
+        
+        .price-inputs {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .price-input {
+            width: 70px;
+            padding: 6px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+        
+        .btn-filter {
+            width: 100%;
+            padding: 10px;
+            background: #2c5530;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-filter:hover {
+            background: #3d7043;
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .content-header h1 {
+            color: #2c5530;
+            font-size: 28px;
+        }
+        
+        .sort-select {
+            padding: 10px 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .product-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-details {
+            padding: 20px;
+        }
+        
+        .product-name {
+            color: #2c5530;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            color: #28a745;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .product-rating {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+        
+        .product-specs {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .btn-view {
+            width: 100%;
+            padding: 12px;
+            background: #2c5530;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-view:hover {
+            background: #3d7043;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e9ecef;
+        }
+        
+        .page-btn {
+            padding: 10px 15px;
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .page-btn:hover {
+            background: #2c5530;
+            color: white;
+            border-color: #2c5530;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c5530;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        /* Mobile Styles */
+        .mobile-frame .header {
+            flex-direction: column;
+            padding: 15px;
+            gap: 10px;
+        }
+        
+        .mobile-frame .logo-text {
+            font-size: 20px;
+        }
+        
+        .mobile-frame .nav {
+            display: none;
+        }
+        
+        .mobile-frame .page-layout {
+            grid-template-columns: 1fr;
+            padding: 15px;
+            gap: 15px;
+        }
+        
+        .mobile-frame .sidebar {
+            position: static;
+        }
+        
+        .mobile-frame .product-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        .mobile-frame .product-image {
+            height: 150px;
+        }
+        
+        .filter-bar {
+            display: none;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        
+        .mobile-frame .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .mobile-frame .sidebar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup-container">
+        <h1 class="mockup-title">🚲 BIKES PAGE - Digital Mockup</h1>
+        <div style="text-align: center;">
+            <span class="prototype-badge">PROTOTYPE - NOT FINAL DESIGN</span>
+        </div>
+        
+        <div class="device-showcase">
+            <!-- DESKTOP MOCKUP -->
+            <div class="device-frame desktop-frame">
+                <div class="device-label">💻 Desktop Version (1920x1080)</div>
+                <div class="screen">
+                    <!-- Header -->
+                    <header class="header">
+                        <div class="logo-area">
+                            <div class="logo-icon">
+                                <img class="logo-icon" src="../img/bike_logo.png" alt="Logo image">
+                            </div>
+                            <div class="logo-text">BIKE KING</div>
+                        </div>
+                        <nav class="nav">
+                            <a href="#" class="nav-link">Home (H)</a>
+                            <a href="#" class="nav-link active">Bikes (B)</a>
+                            <a href="#" class="nav-link">Accessories (A)</a>
+                            <a href="#" class="nav-link">Offers (O)</a>
+                            <a href="#" class="nav-link">Contact (C)</a>
+                        </nav>
+                        <div class="auth-buttons">
+                            <button class="btn btn-secondary">Login</button>
+                            <button class="btn btn-primary">Register</button>
+                        </div>
+                    </header>
+                    
+                    <!-- Page Layout -->
+                    <div class="page-layout">
+                        <!-- Sidebar -->
+                        <aside class="sidebar">
+                            <h3>🔍 Filters</h3>
+                            
+                            <div class="filter-group">
+                                <h4>Bike Type</h4>
+                                <label class="filter-option">
+                                    <input type="checkbox" checked>
+                                    <span>Road Bikes</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span>Mountain Bikes</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span>Hybrid Bikes</span>
+                                </label>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <h4>Price Range</h4>
+                                <div class="price-inputs">
+                                    <input type="number" class="price-input" placeholder="£400" min="0">
+                                    <span>-</span>
+                                    <input type="number" class="price-input" placeholder="£2000" min="0">
+                                </div>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <h4>Brand</h4>
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span>Trek</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span>Giant</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span>Specialized</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox">
+                                    <span>Cannondale</span>
+                                </label>
+                            </div>
+                            
+                            <button class="btn-filter">Apply Filters</button>
+                        </aside>
+                        
+                        <!-- Main Content -->
+                        <main class="main-content">
+                            <div class="content-header">
+                                <h1>Our Bicycle Collection</h1>
+                                <select class="sort-select">
+                                    <option>Price: Low to High</option>
+                                    <option>Price: High to Low</option>
+                                    <option>Brand: A-Z</option>
+                                    <option>Customer Rating</option>
+                                </select>
+                            </div>
+                            
+                            <div class="product-grid" id="productGrid">
+                                <!-- Products will be loaded here -->
+                            </div>
+                            
+                            <div class="pagination">
+                                <button class="page-btn">← Previous</button>
+                                <span style="font-weight: bold;">Page 1 of 3</span>
+                                <button class="page-btn">Next →</button>
+                            </div>
+                        </main>
+                    </div>
+                    
+                    <!-- Footer -->
+                    <footer class="footer">
+                        <p>© 2025 Bike King Borders | All bikes come with 2-year warranty</p>
+                    </footer>
+                </div>
+            </div>
+            
+            <!-- MOBILE MOCKUP -->
+            <div class="device-frame mobile-frame">
+                <div class="device-label">📱 Mobile Version (375x667)</div>
+                <div class="screen">
+                    <!-- Header -->
+                    <header class="header">
+                        <div class="logo-area">
+                            <div class="logo-icon">
+                                <img class="logo-icon" src="../img/bike_logo.png" alt="Logo image">
+                            </div>
+                            <div class="logo-text">BIKE KING</div>
+                        </div>
+                        <div class="auth-buttons">
+                            <button class="btn btn-secondary">Login</button>
+                            <button class="btn btn-primary">☰</button>
+                        </div>
+                    </header>
+                    
+                    <!-- Page Layout -->
+                    <div class="page-layout">
+                        <!-- Filter Bar -->
+                        <div class="filter-bar">
+                            <select style="padding: 8px; border-radius: 5px;">
+                                <option>All Types</option>
+                                <option>Road Bikes</option>
+                                <option>Mountain Bikes</option>
+                            </select>
+                            <select style="padding: 8px; border-radius: 5px;">
+                                <option>Price ↑</option>
+                                <option>Price ↓</option>
+                                <option>Rating</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Main Content -->
+                        <main class="main-content">
+                            <h1 style="font-size: 24px; margin-bottom: 20px; color: #2c5530;">Our Bikes</h1>
+                            
+                            <div class="product-grid" id="mobileProductGrid">
+                                <!-- Products will be loaded here -->
+                            </div>
+                            
+                            <div style="text-align: center; margin-top: 20px;">
+                                <button class="btn-view">Load More Bikes</button>
+                            </div>
+                        </main>
+                    </div>
+                    
+                    <!-- Footer -->
+                    <footer class="footer">
+                        <p style="font-size: 12px;">© 2025 Bike King Borders</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load images and create product cards
+        async function loadProducts() {
+            const products = [
+                {
+                    name: 'Trek Domane AL 2',
+                    price: '£899',
+                    rating: '⭐⭐⭐⭐☆ (4.2)',
+                    specs: 'Lightweight aluminium frame, 21-speed Shimano drivetrain, perfect for road cycling',
+                    image: 'Image 3'
+                },
+                {
+                    name: 'Giant Talon 1 Mountain Bike',
+                    price: '£1,299',
+                    rating: '⭐⭐⭐⭐⭐ (4.8)',
+                    specs: 'Full suspension, 27-speed, all-terrain capability, ideal for Scottish trails',
+                    image: 'Image 7'
+                },
+                {
+                    name: 'Specialized Sirrus X 2.0',
+                    price: '£649',
+                    rating: '⭐⭐⭐⭐☆ (4.1)',
+                    specs: 'Hybrid comfort bike, perfect for city commuting and leisure rides',
+                    image: 'Image 8'
+                },
+                {
+                    name: 'Cannondale CAAD13',
+                    price: '£1,599',
+                    rating: '⭐⭐⭐⭐⭐ (4.9)',
+                    specs: 'Carbon fork, race geometry, professional-grade road bike',
+                    image: 'Image 11'
+                }
+            ];
+
+            const desktopGrid = document.getElementById('productGrid');
+            const mobileGrid = document.getElementById('mobileProductGrid');
+
+            for (const product of products) {
+                try {
+                    // Try to read the image
+                    const imageData = await window.fs.readFile(product.image);
+                    const blob = new Blob([imageData], { type: 'image/jpeg' });
+                    const imageUrl = URL.createObjectURL(blob);
+
+                    // Create product card HTML
+                    const cardHTML = `
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="${imageUrl}" alt="${product.name}">
+                            </div>
+                            <div class="product-details">
+                                <div class="product-name">${product.name}</div>
+                                <div class="product-price">${product.price}</div>
+                                <div class="product-rating">${product.rating}</div>
+                                <div class="product-specs">${product.specs}</div>
+                                <button class="btn-view">View Details</button>
+                            </div>
+                        </div>
+                    `;
+
+                    desktopGrid.innerHTML += cardHTML;
+                    mobileGrid.innerHTML += cardHTML;
+                } catch (error) {
+                    // Fallback if image can't be loaded
+                    const cardHTML = `
+                        <div class="product-card">
+                            <div class="product-image">
+                                📸 ${product.name}
+                            </div>
+                            <div class="product-details">
+                                <div class="product-name">${product.name}</div>
+                                <div class="product-price">${product.price}</div>
+                                <div class="product-rating">${product.rating}</div>
+                                <div class="product-specs">${product.specs}</div>
+                                <button class="btn-view">View Details</button>
+                            </div>
+                        </div>
+                    `;
+
+                    desktopGrid.innerHTML += cardHTML;
+                    mobileGrid.innerHTML += cardHTML;
+                }
+            }
+        }
+
+        // Load products when page loads
+        loadProducts();
+    </script>
+</body>
+</html>

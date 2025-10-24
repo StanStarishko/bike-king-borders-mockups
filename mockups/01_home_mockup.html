@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike King Borders - Home Page Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+        
+        .mockup-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c5530;
+            margin-bottom: 20px;
+        }
+        
+        .prototype-badge {
+            background: #dc3545;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .device-showcase {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .device-frame {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        .device-frame::before {
+            content: 'PROTOTYPE';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #dc3545;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            z-index: 10;
+        }
+        
+        .desktop-frame {
+            width: 900px;
+        }
+        
+        .mobile-frame {
+            width: 340px;
+        }
+        
+        .device-label {
+            background: #2c5530;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 0 -20px;
+        }
+        
+        .screen {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 0 0 10px 10px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-height: 800px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c5530 0%, #3d7043 100%);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            /*border-radius: 50%;*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .logo-text {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+        
+        .nav-link.active {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        
+        .btn-primary {
+            background: #ffc107;
+            color: #2c5530;
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #2c5530 0%, #3d7043 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-button {
+            background: #ffc107;
+            color: #2c5530;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        
+        .slideshow {
+            background: #f8f9fa;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .slideshow h3 {
+            color: #2c5530;
+            margin-bottom: 15px;
+        }
+        
+        .slideshow-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 60px 20px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .content-section {
+            padding: 30px 20px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 100%;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h4 {
+            color: #2c5530;
+            margin-bottom: 10px;
+        }
+        
+        .card ul {
+            list-style: none;
+        }
+        
+        .card li {
+            padding: 4px 0;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .card li::before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .footer {
+            background: #2c5530;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .mobile-frame .header {
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .mobile-frame .nav {
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .mobile-frame .nav-link {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .mobile-frame .grid {
+            grid-template-columns: 1fr;
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup-container">
+        <h1>🏠 HOME PAGE - Digital Mockup</h1>
+        <div style="text-align: center;">
+            <span class="prototype-badge">PROTOTYPE - NOT FINAL DESIGN</span>
+        </div>
+        
+        <div class="device-showcase">
+            <!-- DESKTOP -->
+            <div class="device-frame desktop-frame">
+                <div class="device-label">💻 Desktop Version (1920x1080)</div>
+                <div class="screen">
+                    <header class="header">
+                        <div class="logo-area">
+                            <div class="logo-icon">
+                                <img class="logo-icon" src="../img/bike_logo.png" alt="Logo image">
+                            </div>
+                            <div class="logo-text">BIKE KING</div>
+                        </div>
+                        <nav class="nav">
+                            <a href="#" class="nav-link active">Home (H)</a>
+                            <a href="#" class="nav-link">Bikes (B)</a>
+                            <a href="#" class="nav-link">Accessories (A)</a>
+                            <a href="#" class="nav-link">Offers (O)</a>
+                            <a href="#" class="nav-link">Contact (C)</a>
+                        </nav>
+                        <div class="auth-buttons">
+                            <button class="btn btn-secondary">Login</button>
+                            <button class="btn btn-primary">Register</button>
+                        </div>
+                    </header>
+                    
+                    <section class="hero">
+                        <h2>Adventure Awaits in the Scottish Borders</h2>
+                        <p>Premium Bikes • Expert Repairs • Trail Adventures</p>
+                        <button class="cta-button">Explore Our Collection</button>
+                    </section>
+                    
+                    <section class="slideshow">
+                        <h3>Discover Local Trail Adventures</h3>
+                        <div class="slideshow-container">
+                            📸 Trail Photo Slideshow<br>(Swipeable Gallery)
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <div class="grid">
+                            <div class="card">
+                                <h4>🚲 Featured Bikes</h4>
+                                <ul>
+                                    <li>Road Bikes from £599</li>
+                                    <li>Mountain Bikes from £799</li>
+                                    <li>Hybrid Bikes from £449</li>
+                                </ul>
+                            </div>
+                            <div class="card">
+                                <h4>🔧 Our Services</h4>
+                                <ul>
+                                    <li>Professional bike repairs</li>
+                                    <li>Daily bike hire</li>
+                                    <li>Custom bike builds</li>
+                                </ul>
+                            </div>
+                            <div class="card">
+                                <h4>📍 Visit Our Store</h4>
+                                <ul>
+                                    <li>123 Cycling Street, Glasgow</li>
+                                    <li>Mon-Fri: 9AM-6PM</li>
+                                    <li>☎️ 0141 123 4567</li>
+                                </ul>
+                            </div>
+                            <div class="card">
+                                <h4>🌐 Stay Connected</h4>
+                                <ul>
+                                    <li>Follow us on social media</li>
+                                    <li>Monthly newsletter</li>
+                                    <li>Exclusive offers</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <footer class="footer">
+                        <p>© 2025 Bike King Borders | Privacy Policy | GDPR Compliance</p>
+                    </footer>
+                </div>
+            </div>
+            
+            <!-- MOBILE -->
+            <div class="device-frame mobile-frame">
+                <div class="device-label">📱 Mobile Version (375x667)</div>
+                <div class="screen">
+                    <header class="header">
+                        <div class="logo-area">
+                            <div class="logo-icon">
+                                <img class="logo-icon" src="../img/bike_logo.png" alt="Logo image">
+                            </div>
+                            <div class="logo-text">BIKE KING</div>
+                        </div>
+                        <div class="auth-buttons">
+                            <button class="btn btn-secondary">Login</button>
+                            <button class="btn btn-primary">☰</button>
+                        </div>
+                        <nav class="nav">
+                            <a href="#" class="nav-link active">Home (H)</a>
+                            <a href="#" class="nav-link">Bikes (B)</a>
+                            <a href="#" class="nav-link">Accessories (A)</a>
+                            <a href="#" class="nav-link">Offers (O)</a>
+                            <a href="#" class="nav-link">Contact (C)</a>
+                        </nav>
+                    </header>
+                    
+                    <section class="hero">
+                        <h2 style="font-size: 24px;">Adventure Awaits</h2>
+                        <p>Premium Bikes & Trails</p>
+                        <button class="cta-button">Explore</button>
+                    </section>
+                    
+                    <section class="slideshow">
+                        <h3>Trail Adventures</h3>
+                        <div class="slideshow-container">
+                            📸 Trail Gallery<br>(Touch to Swipe)
+                        </div>
+                    </section>
+                    
+                    <section class="content-section">
+                        <div class="grid">
+                            <div class="card">
+                                <h4>🚲 Bikes</h4>
+                                <ul>
+                                    <li>Road • Mountain • Hybrid</li>
+                                    <li>From £449</li>
+                                </ul>
+                            </div>
+                            <div class="card">
+                                <h4>🔧 Services</h4>
+                                <ul>
+                                    <li>Sales • Hire • Repairs</li>
+                                    <li>Expert advice</li>
+                                </ul>
+                            </div>
+                            <div class="card">
+                                <h4>📍 Visit Us</h4>
+                                <ul>
+                                    <li>Glasgow, Scotland</li>
+                                    <li>☎️ 0141 123 4567</li>
+                                </ul>
+                            </div>
+                            <div class="card">
+                                <h4>🌐 Connect</h4>
+                                <ul>
+                                    <li>Social Media</li>
+                                    <li>Newsletter</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <footer class="footer">
+                        <p style="font-size: 12px;">© 2025 Bike King Borders</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

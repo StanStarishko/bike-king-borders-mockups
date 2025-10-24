@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike King Borders - Login & Register Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+        
+        .mockup-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .mockup-title {
+            text-align: center;
+            color: #2c5530;
+            margin-bottom: 30px;
+            font-size: 32px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .prototype-badge {
+            background: rgba(220, 53, 69, 0.9);
+            color: white;
+            padding: 8px 20px;
+            display: inline-block;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        
+        .device-showcase {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .device-frame {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        .device-frame::before {
+            content: 'PROTOTYPE';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #dc3545;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .desktop-frame {
+            width: 900px;
+        }
+        
+        .mobile-frame {
+            width: 340px;
+        }
+        
+        .device-label {
+            background: #6f42c1;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 0 -20px;
+        }
+        
+        .screen {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 0 0 10px 10px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-height: 800px;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #2c5530 0%, #3d7043 100%);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .logo-text {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+        
+        .nav-link.active {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        
+        .btn-primary {
+            background: #ffc107;
+            color: #2c5530;
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid white;
+        }
+        
+        /* Page Content */
+        .auth-page {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            padding: 50px 30px;
+        }
+        
+        /* Symmetric Grid Layout */
+        .auth-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        /* Form Containers */
+        .auth-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-header h2 {
+            color: #2c5530;
+            font-size: 28px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .form-header p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #6f42c1;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(111,66,193,0.1);
+        }
+        
+        /* Checkbox Group */
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            margin-top: 3px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+        
+        .checkbox-group label {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+        
+        .checkbox-group a {
+            color: #6f42c1;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Buttons */
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .btn-login {
+            background: linear-gradient(135deg, #2c5530 0%, #3d7043 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(44,85,48,0.3);
+        }
+        
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44,85,48,0.4);
+        }
+        
+        .btn-register {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+        }
+        
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40,167,69,0.4);
+        }
+        
+        /* Security Info Box */
+        .security-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c3e6cb 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+        }
+        
+        .security-box h4 {
+            color: #2c5530;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .security-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .security-box li {
+            color: #555;
+            font-size: 12px;
+            padding: 3px 0;
+        }
+        
+        .security-box li::before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        /* Password Requirements */
+        .password-info {
+            background: #fff3cd;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .password-info h4 {
+            color: #856404;
+            font-size: 13px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .password-info ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .password-info li {
+            color: #856404;
+            font-size: 11px;
+            padding: 2px 0;
+        }
+        
+        .password-info li::before {
+            content: "• ";
+            margin-right: 5px;
+        }
+        
+        /* Benefits Box */
+        .benefits-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .benefits-box h4 {
+            color: #2c5530;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .benefits-box p {
+            color: #666;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+        
+        /* Links */
+        .form-links {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .form-links a {
+            color: #6f42c1;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .form-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c5530;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        /* Mobile Styles */
+        .mobile-frame .header {
+            flex-direction: column;
+            padding: 15px;
+            gap: 10px;
+        }
+        
+        .mobile-frame .logo-text {
+            font-size: 20px;
+        }
+        
+        .mobile-frame .nav {
+            display: none;
+        }
+        
+        .mobile-frame .auth-page {
+            padding: 30px 15px;
+        }
+        
+        .mobile-frame .auth-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        
+        .mobile-frame .auth-form {
+            padding: 25px 20px;
+        }
+        
+        .mobile-frame .form-header h2 {
+            font-size: 22px;
+        }
+        
+        .mobile-frame .form-control {
+            padding: 12px;
+        }
+        
+        /* Tab Switcher for Mobile */
+        .tab-switcher {
+            display: none;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            border: 2px solid #dee2e6;
+            background: white;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            background: #6f42c1;
+            color: white;
+            border-color: #6f42c1;
+        }
+        
+        .mobile-frame .tab-switcher {
+            display: flex;
+        }
+        
+        .mobile-frame .auth-grid > div:nth-child(2) {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup-container">
+        <h1 class="mockup-title">🔐 LOGIN & REGISTER PAGE - Digital Mockup</h1>
+        <div style="text-align: center;">
+            <span class="prototype-badge">PROTOTYPE - NOT FINAL DESIGN</span>
+        </div>
+        
+        <div class="device-showcase">
+            <!-- DESKTOP MOCKUP -->
+            <div class="device-frame desktop-frame">
+                <div class="device-label">💻 Desktop Version (1920x1080)</div>
+                <div class="screen">
+                    <!-- Header -->
+                    <header class="header">
+                        <div class="logo-area">
+                            <div class="logo-icon">
+                                <img class="logo-icon" src="../img/bike_logo.png" alt="Logo image">
+                            </div>
+                            <div class="logo-text">BIKE KING</div>
+                        </div>
+                        <nav class="nav">
+                            <a href="#" class="nav-link">Home (H)</a>
+                            <a href="#" class="nav-link">Bikes (B)</a>
+                            <a href="#" class="nav-link">Accessories (A)</a>
+                            <a href="#" class="nav-link">Offers (O)</a>
+                            <a href="#" class="nav-link">Contact (C)</a>
+                        </nav>
+                        <div class="auth-buttons">
+                            <button class="btn btn-secondary" style="background: #6f42c1; border-color: #6f42c1;">Login</button>
+                            <button class="btn btn-primary">Register</button>
+                        </div>
+                    </header>
+                    
+                    <!-- Auth Page Content -->
+                    <section class="auth-page">
+                        <!-- Symmetric Grid -->
+                        <div class="auth-grid">
+                            <!-- Login Form -->
+                            <div class="auth-form">
+                                <div class="form-header">
+                                    <h2>🔓 Login to Account</h2>
+                                    <p>Welcome back! Please enter your details</p>
+                                </div>
+                                
+                                <form>
+                                    <div class="form-group">
+                                        <label class="form-label" for="login-email">Email Address *</label>
+                                        <input type="email" id="login-email" class="form-control" placeholder="your.email@example.com" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" for="login-password">Password *</label>
+                                        <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required>
+                                    </div>
+                                    
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="remember">
+                                        <label for="remember">Remember me for 30 days</label>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn-submit btn-login">Login to Account</button>
+                                    
+                                    <div class="form-links">
+                                        <a href="#">Forgot Password?</a>
+                                    </div>
+                                </form>
+                                
+                                <div class="security-box">
+                                    <h4>🛡️ Your Security Matters</h4>
+                                    <ul>
+                                        <li>Secure encrypted connection (SSL)</li>
+                                        <li>GDPR compliant data handling</li>
+                                        <li>Regular security audits</li>
+                                        <li>Two-factor authentication available</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="benefits-box">
+                                    <h4>Don't have an account?</h4>
+                                    <p>Register now for exclusive member benefits and special offers!</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Register Form -->
+                            <div class="auth-form">
+                                <div class="form-header">
+                                    <h2>📝 Create Account</h2>
+                                    <p>Join our cycling community today</p>
+                                </div>
+                                
+                                <form>
+                                    <div class="form-group">
+                                        <label class="form-label" for="reg-name">Full Name *</label>
+                                        <input type="text" id="reg-name" class="form-control" placeholder="John Smith" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" for="reg-email">Email Address *</label>
+                                        <input type="email" id="reg-email" class="form-control" placeholder="your.email@example.com" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" for="reg-password">Password *</label>
+                                        <input type="password" id="reg-password" class="form-control" placeholder="Create a strong password" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" for="reg-confirm">Confirm Password *</label>
+                                        <input type="password" id="reg-confirm" class="form-control" placeholder="Repeat your password" required>
+                                    </div>
+                                    
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="terms" required>
+                                        <label for="terms">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
+                                    </div>
+                                    
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="newsletter">
+                                        <label for="newsletter">Subscribe to monthly newsletters (optional)</label>
+                                    </div>
+                                    
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="gdpr" required>
+                                        <label for="gdpr">I consent to processing my personal data in accordance with GDPR</label>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn-submit btn-register">Create Account</button>
+                                </form>
+                                
+                                <div class="password-info">
+                                    <h4>💡 Password Requirements</h4>
+                                    <ul>
+                                        <li>At least 8 characters long</li>
+                                        <li>Include numbers and symbols</li>
+                                        <li>Mix of uppercase and lowercase letters</li>
+                                        <li>Avoid common words or patterns</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="benefits-box">
+                                    <h4>🎁 Member Benefits</h4>
+                                    <p>Exclusive discounts • Order tracking • Personalised recommendations • Monthly cycling tips</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Footer -->
+                    <footer class="footer">
+                        <p>© 2025 Bike King Borders | Your data is protected with SSL encryption | GDPR Compliant</p>
+                    </footer>
+                </div>
+            </div>
+            
+            <!-- MOBILE MOCKUP -->
+            <div class="device-frame mobile-frame">
+                <div class="device-label">📱 Mobile Version (375x667)</div>
+                <div class="screen">
+                    <!-- Header -->
+                    <header class="header">
+                        <div class="logo-area">
+                            <div class="logo-icon">
+                                <img class="logo-icon" src="../img/bike_logo.png" alt="Logo image">
+                            </div>
+                            <div class="logo-text">BIKE KING</div>
+                        </div>
+                        <div class="auth-buttons">
+                            <button class="btn btn-secondary" style="background: #6f42c1; border-color: #6f42c1;">Login</button>
+                            <button class="btn btn-primary">☰</button>
+                        </div>
+                    </header>
+                    
+                    <!-- Auth Page Content -->
+                    <section class="auth-page">
+                        <!-- Tab Switcher -->
+                        <div class="tab-switcher">
+                            <button class="tab-btn active">Login</button>
+                            <button class="tab-btn">Register</button>
+                        </div>
+                        
+                        <!-- Forms Grid -->
+                        <div class="auth-grid">
+                            <!-- Login Form -->
+                            <div class="auth-form">
+                                <div class="form-header">
+                                    <h2>🔓 Login</h2>
+                                    <p>Welcome back!</p>
+                                </div>
+                                
+                                <form>
+                                    <div class="form-group">
+                                        <label class="form-label" for="m-login-email">Email Address</label>
+                                        <input type="email" id="m-login-email" class="form-control" placeholder="your.email@example.com">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" for="m-login-password">Password</label>
+                                        <input type="password" id="m-login-password" class="form-control" placeholder="Password">
+                                    </div>
+                                    
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="m-remember">
+                                        <label for="m-remember">Remember me</label>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn-submit btn-login">Login</button>
+                                    
+                                    <div class="form-links">
+                                        <a href="#">Forgot Password?</a>
+                                    </div>
+                                </form>
+                                
+                                <div class="security-box">
+                                    <h4>🛡️ Secure Login</h4>
+                                    <ul>
+                                        <li>SSL encrypted connection</li>
+                                        <li>GDPR compliant</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="benefits-box">
+                                    <h4>New to Bike King?</h4>
+                                    <p style="font-size: 11px;">Register for FREE and get exclusive member benefits!</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Register Form (Hidden on mobile initially) -->
+                            <div class="auth-form">
+                                <div class="form-header">
+                                    <h2>📝 Register</h2>
+                                    <p>Join us today</p>
+                                </div>
+                                
+                                <form>
+                                    <div class="form-group">
+                                        <label class="form-label" for="m-reg-name">Full Name</label>
+                                        <input type="text" id="m-reg-name" class="form-control" placeholder="Your Name">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" for="m-reg-email">Email</label>
+                                        <input type="email" id="m-reg-email" class="form-control" placeholder="your.email@example.com">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" for="m-reg-password">Password</label>
+                                        <input type="password" id="m-reg-password" class="form-control" placeholder="Create password">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" for="m-reg-confirm">Confirm</label>
+                                        <input type="password" id="m-reg-confirm" class="form-control" placeholder="Repeat password">
+                                    </div>
+                                    
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="m-terms">
+                                        <label for="m-terms" style="font-size: 11px;">I agree to <a href="#">Terms</a> & <a href="#">Privacy Policy</a></label>
+                                    </div>
+                                    
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="m-newsletter">
+                                        <label for="m-newsletter" style="font-size: 11px;">Subscribe to newsletter (optional)</label>
+                                    </div>
+                                    
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="m-gdpr">
+                                        <label for="m-gdpr" style="font-size: 11px;">I consent to GDPR data processing</label>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn-submit btn-register">Create Account</button>
+                                </form>
+                                
+                                <div class="password-info">
+                                    <h4>💡 Password Tips</h4>
+                                    <ul>
+                                        <li>8+ characters</li>
+                                        <li>Numbers & symbols</li>
+                                        <li>Upper & lowercase</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Footer -->
+                    <footer class="footer">
+                        <p style="font-size: 11px;">© 2025 Bike King Borders<br>Secure • GDPR Compliant</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

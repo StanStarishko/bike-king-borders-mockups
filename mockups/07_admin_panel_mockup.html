@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike King Borders - Admin Panel Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+        
+        .mockup-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .mockup-title {
+            text-align: center;
+            color: #dc3545;
+            margin-bottom: 30px;
+            font-size: 32px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .prototype-badge {
+            background: rgba(220, 53, 69, 0.9);
+            color: white;
+            padding: 8px 20px;
+            display: inline-block;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        
+        .device-showcase {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .device-frame {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        .device-frame::before {
+            content: 'PROTOTYPE';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #dc3545;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .desktop-frame {
+            width: 900px;
+        }
+        
+        .mobile-frame {
+            width: 340px;
+        }
+        
+        .device-label {
+            background: #dc3545;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 0 -20px;
+        }
+        
+        .screen {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 0 0 10px 10px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-height: 800px;
+        }
+        
+        /* Admin Header */
+        .admin-header {
+            background: linear-gradient(135deg, #343a40 0%, #495057 100%);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            border-bottom: 3px solid #dc3545;
+        }
+        
+        .admin-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .admin-logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 4px 8px rgba(220,53,69,0.3);
+        }
+        
+        .admin-logo-text {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        
+        .admin-nav {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .admin-nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .admin-nav-link:hover, .admin-nav-link.active {
+            background: rgba(220,53,69,0.3);
+        }
+        
+        .admin-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .user-info {
+            color: white;
+            font-size: 14px;
+        }
+        
+        .btn-logout {
+            padding: 8px 15px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn-logout:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+        }
+        
+        /* Alert Banner */
+        .alert-banner {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            padding: 15px 30px;
+            border-left: 4px solid #ffc107;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .alert-icon {
+            font-size: 24px;
+        }
+        
+        .alert-text {
+            color: #856404;
+            font-size: 14px;
+        }
+        
+        .alert-text strong {
+            font-weight: 700;
+        }
+        
+        /* Dashboard Layout */
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            background: #f8f9fa;
+            min-height: 600px;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: #343a40;
+            padding: 25px 20px;
+            color: white;
+        }
+        
+        .sidebar h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #dc3545;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 25px;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 8px;
+        }
+        
+        .sidebar-menu a {
+            color: #adb5bd;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            padding: 8px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-menu a:hover {
+            background: rgba(220,53,69,0.2);
+            color: white;
+        }
+        
+        .sidebar-menu a::before {
+            content: "• ";
+            margin-right: 5px;
+            color: #dc3545;
+        }
+        
+        /* Main Dashboard Content */
+        .dashboard-main {
+            padding: 30px;
+        }
+        
+        .dashboard-header {
+            margin-bottom: 30px;
+        }
+        
+        .dashboard-header h1 {
+            color: #343a40;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .dashboard-header p {
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid;
+        }
+        
+        .stat-card.green {
+            border-left-color: #28a745;
+        }
+        
+        .stat-card.blue {
+            border-left-color: #17a2b8;
+        }
+        
+        .stat-card.orange {
+            border-left-color: #fd7e14;
+        }
+        
+        .stat-card.red {
+            border-left-color: #dc3545;
+        }
+        
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .stat-title {
+            color: #6c757d;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .stat-icon {
+            font-size: 24px;
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #343a40;
+            margin-bottom: 8px;
+        }
+        
+        .stat-description {
+            color: #6c757d;
+            font-size: 12px;
+        }
+        
+        .stat-status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+        
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        /* Management Section */
+        .management-section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .section-header h2 {
+            color: #343a40;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-action {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 13px;
+        }
+        
+        .btn-action.primary {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .btn-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .data-table thead {
+            background: #f8f9fa;
+        }
+        
+        .data-table th {
+            padding: 12px;
+            text-align: left;
+            font-size: 13px;
+            color: #495057;
+            font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        .data-table td {
+            padding: 12px;
+            font-size: 13px;
+            color: #6c757d;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .badge-user {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .badge-staff {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .table-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn-table {
+            padding: 4px 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .btn-edit {
+            background: #17a2b8;
+            color: white;
+        }
+        
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+        }
+        
+        /* Footer */
+        .admin-footer {
+            background: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        /* Mobile Styles */
+        .mobile-frame .admin-header {
+            flex-direction: column;
+            padding: 15px;
+            gap: 15px;
+        }
+        
+        .mobile-frame .admin-nav {
+            display: none;
+        }
+        
+        .mobile-frame .dashboard-layout {
+            grid-template-columns: 1fr;
+        }
+        
+        .mobile-frame .sidebar {
+            display: none;
+        }
+        
+        .mobile-frame .dashboard-main {
+            padding: 20px 15px;
+        }
+        
+        .mobile-frame .stats-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .mobile-frame .stat-card {
+            padding: 15px;
+        }
+        
+        .mobile-frame .stat-value {
+            font-size: 24px;
+        }
+        
+        .mobile-frame .data-table {
+            font-size: 11px;
+        }
+        
+        .mobile-frame .data-table th,
+        .mobile-frame .data-table td {
+            padding: 8px 4px;
+        }
+        
+        /* Quick Actions Grid */
+        .quick-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .action-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .action-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .action-title {
+            color: #343a40;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup-container">
+        <h1 class="mockup-title">🛠️ ADMIN PANEL - Digital Mockup</h1>
+        <div style="text-align: center;">
+            <span class="prototype-badge">PROTOTYPE - STAFF ACCESS ONLY</span>
+        </div>
+        
+        <div class="device-showcase">
+            <!-- DESKTOP MOCKUP -->
+            <div class="device-frame desktop-frame">
+                <div class="device-label">💻 Desktop Version (1920x1080)</div>
+                <div class="screen">
+                    <!-- Admin Header -->
+                    <header class="admin-header">
+                        <div class="admin-logo">
+                            <div class="admin-logo-icon">🛠️</div>
+                            <div class="admin-logo-text">ADMIN PANEL</div>
+                        </div>
+                        <nav class="admin-nav">
+                            <a href="#" class="admin-nav-link active">Dashboard</a>
+                            <a href="#" class="admin-nav-link">Products</a>
+                            <a href="#" class="admin-nav-link">Users</a>
+                            <a href="#" class="admin-nav-link">Settings</a>
+                            <a href="#" class="admin-nav-link">Reports</a>
+                        </nav>
+                        <div class="admin-user">
+                            <div class="user-info">👤 Staff Name</div>
+                            <button class="btn-logout">Logout</button>
+                        </div>
+                    </header>
+                    
+                    <!-- Alert Banner -->
+                    <div class="alert-banner">
+                        <div class="alert-icon">⚠️</div>
+                        <div class="alert-text">
+                            <strong>System Notice:</strong> Regular backup completed successfully. Last backup: 24/09/2025 02:00 AM
+                        </div>
+                    </div>
+                    
+                    <!-- Dashboard Layout -->
+                    <div class="dashboard-layout">
+                        <!-- Sidebar -->
+                        <aside class="sidebar">
+                            <div class="sidebar-section">
+                                <h3>⚡ Quick Actions</h3>
+                                <ul class="sidebar-menu">
+                                    <li><a href="#">Add Product</a></li>
+                                    <li><a href="#">Update Prices</a></li>
+                                    <li><a href="#">Manage Users</a></li>
+                                    <li><a href="#">Update Hours</a></li>
+                                    <li><a href="#">Edit Offers</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="sidebar-section">
+                                <h3>📊 Reports</h3>
+                                <ul class="sidebar-menu">
+                                    <li><a href="#">User Activity</a></li>
+                                    <li><a href="#">Product Views</a></li>
+                                    <li><a href="#">Contact Forms</a></li>
+                                    <li><a href="#">Site Analytics</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="sidebar-section">
+                                <h3>🔧 System</h3>
+                                <ul class="sidebar-menu">
+                                    <li><a href="#">Backup Data</a></li>
+                                    <li><a href="#">Security Logs</a></li>
+                                    <li><a href="#">Performance</a></li>
+                                </ul>
+                            </div>
+                        </aside>
+                        
+                        <!-- Main Dashboard Content -->
+                        <main class="dashboard-main">
+                            <div class="dashboard-header">
+                                <h1>Dashboard Overview</h1>
+                                <p>Welcome back! Here's what's happening with your store today.</p>
+                            </div>
+                            
+                            <!-- Stats Grid -->
+                            <div class="stats-grid">
+                                <div class="stat-card green">
+                                    <div class="stat-header">
+                                        <div class="stat-title">TOTAL PRODUCTS</div>
+                                        <div class="stat-icon">🚲</div>
+                                    </div>
+                                    <div class="stat-value">47</div>
+                                    <div class="stat-description">Active products in catalogue</div>
+                                    <div class="stat-status status-warning">3 Low Stock</div>
+                                </div>
+                                
+                                <div class="stat-card blue">
+                                    <div class="stat-header">
+                                        <div class="stat-title">REGISTERED USERS</div>
+                                        <div class="stat-icon">👥</div>
+                                    </div>
+                                    <div class="stat-value">156</div>
+                                    <div class="stat-description">Total customer accounts</div>
+                                    <div class="stat-status status-success">+2 Today</div>
+                                </div>
+                                
+                                <div class="stat-card orange">
+                                    <div class="stat-header">
+                                        <div class="stat-title">PRODUCT VIEWS</div>
+                                        <div class="stat-icon">👁️</div>
+                                    </div>
+                                    <div class="stat-value">156</div>
+                                    <div class="stat-description">Views today</div>
+                                    <div class="stat-status status-success">+23% vs yesterday</div>
+                                </div>
+                                
+                                <div class="stat-card red">
+                                    <div class="stat-header">
+                                        <div class="stat-title">SECURITY STATUS</div>
+                                        <div class="stat-icon">🔒</div>
+                                    </div>
+                                    <div class="stat-value">✓</div>
+                                    <div class="stat-description">All systems secure</div>
+                                    <div class="stat-status status-success">SSL Active</div>
+                                </div>
+                            </div>
+                            
+                            <!-- User Management Section -->
+                            <div class="management-section">
+                                <div class="section-header">
+                                    <h2>👥 User Management</h2>
+                                    <button class="btn-action primary">Add New User</button>
+                                </div>
+                                
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Registration Date</th>
+                                            <th>Role</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>John Smith</td>
+                                            <td>john@email.com</td>
+                                            <td>15/09/2025</td>
+                                            <td><span class="badge badge-user">User</span></td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="btn-table btn-edit">Edit</button>
+                                                    <button class="btn-table btn-delete">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sarah Wilson</td>
+                                            <td>sarah@email.com</td>
+                                            <td>20/09/2025</td>
+                                            <td><span class="badge badge-staff">Staff</span></td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="btn-table btn-edit">Edit</button>
+                                                    <button class="btn-table btn-delete">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mike Johnson</td>
+                                            <td>mike@email.com</td>
+                                            <td>22/09/2025</td>
+                                            <td><span class="badge badge-user">User</span></td>
+                                            <td>
+                                                <div class="table-actions">
+                                                    <button class="btn-table btn-edit">Edit</button>
+                                                    <button class="btn-table btn-delete">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </main>
+                    </div>
+                    
+                    <!-- Admin Footer -->
+                    <footer class="admin-footer">
+                        <p>Admin Panel v1.0 | Activity Logged | Security: SSL Enabled | Last Login: 24/09/2025 09:15 AM</p>
+                    </footer>
+                </div>
+            </div>
+            
+            <!-- MOBILE MOCKUP -->
+            <div class="device-frame mobile-frame">
+                <div class="device-label">📱 Mobile Version (375x667)</div>
+                <div class="screen">
+                    <!-- Admin Header -->
+                    <header class="admin-header">
+                        <div class="admin-logo">
+                            <div class="admin-logo-icon">🛠️</div>
+                            <div class="admin-logo-text">ADMIN</div>
+                        </div>
+                        <div class="admin-user">
+                            <div class="user-info">👤 Staff</div>
+                            <button class="btn-logout">Logout</button>
+                        </div>
+                    </header>
+                    
+                    <!-- Alert Banner -->
+                    <div class="alert-banner" style="padding: 12px 15px;">
+                        <div class="alert-icon" style="font-size: 20px;">⚠️</div>
+                        <div class="alert-text" style="font-size: 11px;">
+                            <strong>System:</strong> Backup completed
+                        </div>
+                    </div>
+                    
+                    <!-- Dashboard Layout -->
+                    <div class="dashboard-layout">
+                        <!-- Main Dashboard Content -->
+                        <main class="dashboard-main">
+                            <div class="dashboard-header">
+                                <h1 style="font-size: 22px;">Dashboard</h1>
+                                <p style="font-size: 12px;">Store overview</p>
+                            </div>
+                            
+                            <!-- Quick Actions -->
+                            <div class="quick-actions-grid">
+                                <div class="action-card">
+                                    <div class="action-icon">🚲</div>
+                                    <div class="action-title">Products</div>
+                                    <div style="font-size: 11px; color: #6c757d; margin-top: 5px;">47 total</div>
+                                </div>
+                                
+                                <div class="action-card">
+                                    <div class="action-icon">⚙️</div>
+                                    <div class="action-title">Settings</div>
+                                    <div style="font-size: 11px; color: #6c757d; margin-top: 5px;">Manage</div>
+                                </div>
+                                
+                                <div class="action-card">
+                                    <div class="action-icon">👥</div>
+                                    <div class="action-title">Users</div>
+                                    <div style="font-size: 11px; color: #6c757d; margin-top: 5px;">156 registered</div>
+                                </div>
+                                
+                                <div class="action-card">
+                                    <div class="action-icon">📊</div>
+                                    <div class="action-title">Reports</div>
+                                    <div style="font-size: 11px; color: #6c757d; margin-top: 5px;">Analytics</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Stats Grid -->
+                            <div class="stats-grid">
+                                <div class="stat-card green">
+                                    <div class="stat-header">
+                                        <div class="stat-title" style="font-size: 11px;">PRODUCTS</div>
+                                        <div class="stat-icon" style="font-size: 20px;">🚲</div>
+                                    </div>
+                                    <div class="stat-value">47</div>
+                                    <div class="stat-description" style="font-size: 10px;">Active in catalogue</div>
+                                </div>
+                                
+                                <div class="stat-card blue">
+                                    <div class="stat-header">
+                                        <div class="stat-title" style="font-size: 11px;">USERS</div>
+                                        <div class="stat-icon" style="font-size: 20px;">👥</div>
+                                    </div>
+                                    <div class="stat-value">156</div>
+                                    <div class="stat-description" style="font-size: 10px;">Registered</div>
+                                </div>
+                                
+                                <div class="stat-card orange">
+                                    <div class="stat-header">
+                                        <div class="stat-title" style="font-size: 11px;">VIEWS</div>
+                                        <div class="stat-icon" style="font-size: 20px;">👁️</div>
+                                    </div>
+                                    <div class="stat-value">156</div>
+                                    <div class="stat-description" style="font-size: 10px;">Today</div>
+                                </div>
+                                
+                                <div class="stat-card red">
+                                    <div class="stat-header">
+                                        <div class="stat-title" style="font-size: 11px;">SECURITY</div>
+                                        <div class="stat-icon" style="font-size: 20px;">🔒</div>
+                                    </div>
+                                    <div class="stat-value">✓</div>
+                                    <div class="stat-description" style="font-size: 10px;">All secure</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Recent Activity -->
+                            <div class="management-section">
+                                <div class="section-header">
+                                    <h2 style="font-size: 18px;">📈 Today's Summary</h2>
+                                </div>
+                                
+                                <div style="font-size: 12px; line-height: 1.8; color: #6c757d;">
+                                    • Product views: <strong>156</strong><br>
+                                    • New registrations: <strong>2</strong><br>
+                                    • Contact forms: <strong>5</strong><br>
+                                    • Newsletter signups: <strong>3</strong>
+                                </div>
+                            </div>
+                            
+                            <!-- Security Status -->
+                            <div class="management-section">
+                                <div class="section-header">
+                                    <h2 style="font-size: 18px;">🔒 Security</h2>
+                                </div>
+                                
+                                <div style="font-size: 12px; color: #6c757d;">
+                                    <div style="margin-bottom: 8px;">
+                                        <span style="color: #28a745;">✓</span> SSL Certificate Valid
+                                    </div>
+                                    <div style="margin-bottom: 8px;">
+                                        <span style="color: #28a745;">✓</span> Security Scan Clean
+                                    </div>
+                                    <div style="margin-bottom: 8px;">
+                                        <span style="color: #28a745;">✓</span> GDPR Compliant
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                    
+                    <!-- Admin Footer -->
+                    <footer class="admin-footer">
+                        <p style="font-size: 10px;">Admin Panel v1.0<br>Last Login: 24/09/2025 09:15</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

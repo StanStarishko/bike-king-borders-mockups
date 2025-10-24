@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike King Borders - Accessories Page Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+        
+        .mockup-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .mockup-title {
+            text-align: center;
+            color: #2c5530;
+            margin-bottom: 30px;
+            font-size: 32px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .prototype-badge {
+            background: rgba(220, 53, 69, 0.9);
+            color: white;
+            padding: 8px 20px;
+            display: inline-block;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        
+        .device-showcase {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .device-frame {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        .device-frame::before {
+            content: 'PROTOTYPE';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #dc3545;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .desktop-frame {
+            width: 900px;
+        }
+        
+        .mobile-frame {
+            width: 340px;
+        }
+        
+        .device-label {
+            background: #28a745;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 0 -20px;
+        }
+        
+        .screen {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 0 0 10px 10px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-height: 800px;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #2c5530 0%, #3d7043 100%);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .logo-text {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+        
+        .nav-link.active {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        
+        .btn-primary {
+            background: #ffc107;
+            color: #2c5530;
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid white;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c3e6cb 100%);
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: #2c5530;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .page-header p {
+            color: #555;
+            font-size: 18px;
+        }
+        
+        /* Category Navigation */
+        .category-nav {
+            background: white;
+            padding: 20px 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+        
+        .category-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .category-btn {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .category-btn:hover {
+            background: #e9ecef;
+            border-color: #2c5530;
+            transform: translateY(-2px);
+        }
+        
+        .category-btn.active {
+            background: #2c5530;
+            color: white;
+            border-color: #2c5530;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 40px 30px;
+            background: #f8f9fa;
+        }
+        
+        /* Symmetric Two-Column Layout */
+        .accessories-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        /* Category Section */
+        .category-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .category-section h2 {
+            color: #2c5530;
+            font-size: 24px;
+            margin-bottom: 25px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        /* Product Grid */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .product-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .product-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .product-icon {
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        
+        .product-name {
+            color: #2c5530;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .product-price {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c5530;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        /* Mobile Styles */
+        .mobile-frame .header {
+            flex-direction: column;
+            padding: 15px;
+            gap: 10px;
+        }
+        
+        .mobile-frame .logo-text {
+            font-size: 20px;
+        }
+        
+        .mobile-frame .nav {
+            display: none;
+        }
+        
+        .mobile-frame .page-header h1 {
+            font-size: 24px;
+        }
+        
+        .mobile-frame .page-header p {
+            font-size: 14px;
+        }
+        
+        .mobile-frame .category-buttons {
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .mobile-frame .category-btn {
+            padding: 12px 10px;
+            font-size: 12px;
+        }
+        
+        .mobile-frame .main-content {
+            padding: 20px 15px;
+        }
+        
+        .mobile-frame .accessories-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        
+        .mobile-frame .category-section {
+            padding: 20px;
+        }
+        
+        .mobile-frame .category-section h2 {
+            font-size: 20px;
+        }
+        
+        .mobile-frame .products {
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .mobile-frame .product-icon {
+            height: 60px;
+            font-size: 20px;
+        }
+        
+        .mobile-frame .product-name {
+            font-size: 12px;
+        }
+        
+        .mobile-frame .product-price {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup-container">
+        <h1 class="mockup-title">🛡️ ACCESSORIES PAGE - Digital Mockup</h1>
+        <div style="text-align: center;">
+            <span class="prototype-badge">PROTOTYPE - NOT FINAL DESIGN</span>
+        </div>
+        
+        <div class="device-showcase">
+            <!-- DESKTOP MOCKUP -->
+            <div class="device-frame desktop-frame">
+                <div class="device-label">💻 Desktop Version (1920x1080)</div>
+                <div class="screen">
+                    <!-- Header -->
+                    <header class="header">
+                        <div class="logo-area">
+                            <div class="logo-icon">
+                                <img class="logo-icon" src="../img/bike_logo.png" alt="Logo image">
+                            </div>
+                            <div class="logo-text">BIKE KING</div>
+                        </div>
+                        <nav class="nav">
+                            <a href="#" class="nav-link">Home (H)</a>
+                            <a href="#" class="nav-link">Bikes (B)</a>
+                            <a href="#" class="nav-link active">Accessories (A)</a>
+                            <a href="#" class="nav-link">Offers (O)</a>
+                            <a href="#" class="nav-link">Contact (C)</a>
+                        </nav>
+                        <div class="auth-buttons">
+                            <button class="btn btn-secondary">Login</button>
+                            <button class="btn btn-primary">Register</button>
+                        </div>
+                    </header>
+                    
+                    <!-- Page Header -->
+                    <section class="page-header">
+                        <h1>🛍️ Cycling Accessories & Clothing</h1>
+                        <p>Everything you need for the perfect ride</p>
+                    </section>
+                    
+                    <!-- Category Navigation -->
+                    <nav class="category-nav">
+                        <div class="category-buttons">
+                            <button class="category-btn active">🛡️ Safety Gear</button>
+                            <button class="category-btn">🔧 Maintenance</button>
+                            <button class="category-btn">👕 Clothing</button>
+                            <button class="category-btn">📱 Electronics</button>
+                        </div>
+                    </nav>
+                    
+                    <!-- Main Content -->
+                    <div class="main-content">
+                        <!-- Symmetric Grid -->
+                        <div class="accessories-grid">
+                            <!-- Left Column: Safety & Clothing -->
+                            <div style="display: flex; flex-direction: column; gap: 40px;">
+                                <!-- Safety Equipment -->
+                                <div class="category-section">
+                                    <h2>🛡️ Safety Equipment</h2>
+                                    <div class="products">
+                                        <div class="product-item">
+                                            <div class="product-icon">🪖</div>
+                                            <div class="product-name">Safety Helmet</div>
+                                            <div class="product-price">£45 - £89</div>
+                                            <div class="product-description">CE certified</div>
+                                        </div>
+                                        <div class="product-item">
+                                            <div class="product-icon">💡</div>
+                                            <div class="product-name">LED Light Set</div>
+                                            <div class="product-price">£25</div>
+                                            <div class="product-description">Front & Rear</div>
+                                        </div>
+                                        <div class="product-item">
+                                            <div class="product-icon">🔔</div>
+                                            <div class="product-name">Bicycle Bell</div>
+                                            <div class="product-price">£8</div>
+                                            <div class="product-description">Classic brass</div>
+                                        </div>
+                                        <div class="product-item">
+                                            <div class="product-icon">🦺</div>
+                                            <div class="product-name">Reflective Vest</div>
+                                            <div class="product-price">£15</div>
+                                            <div class="product-description">High visibility</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Cycling Clothing -->
+                                <div class="category-section">
+                                    <h2>👕 Cycling Clothing</h2>
+                                    <div class="products">
+                                        <div class="product-item">
+                                            <div class="product-icon">👕</div>
+                                            <div class="product-name">Cycling Jersey</div>
+                                            <div class="product-price">£35 - £65</div>
+                                            <div class="product-description">Moisture-wicking</div>
+                                        </div>
+                                        <div class="product-item">
+                                            <div class="product-icon">🩳</div>
+                                            <div class="product-name">Padded Shorts</div>
+                                            <div class="product-price">£45</div>
+                                            <div class="product-description">Comfort padding</div>
+                                        </div>
+                                        <div class="product-item">
+                                            <div class="product-icon">🧤</div>
+                                            <div class="product-name">Cycling Gloves</div>
+                                            <div class="product-price">£18</div>
+                                            <div class="product-description">Grip & protection</div>
+                                        </div>
+                                        <div class="product-item">
+                                            <div class="product-icon">🧥</div>
+                                            <div class="product-name">Wind Jacket</div>
+                                            <div class="product-price">£85</div>
+                                            <div class="product-description">Windproof</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Column: Tools & Electronics -->
+                            <div style="display: flex; flex-direction: column; gap: 40px;">
+                                <!-- Maintenance Tools -->
+                                <div class="category-section">
+                                    <h2>🔧 Maintenance Tools</h2>
+                                    <div class="products">
+                                        <div class="product-item">
+                                            <div class="product-icon">🔧</div>
+                                            <div class="product-name">Multi-tool Kit</div>
+                                            <div class="product-price">£25</div>
+                                            <div class="product-description">15 functions</div>
+                                        </div>
+                                        <div class="product-item">
+                                            <div class="product-icon">💨</div>
+                                            <div class="product-name">Bike Pump</div>
+                                            <div class="product-price">£18</div>
+                                            <div class="product-description">Portable</div>
+                                        </div>
+                                        <div class="product-item">
+                                            <div class="product-icon">🛢️</div>
+                                            <div class="product-name">Chain Lubricant</div>
+                                            <div class="product-price">£12</div>
+                                            <div class="product-description">All weather</div>
+                                        </div>
+                                        <div class="product-item">
+                                            <div class="product-icon">🔩</div>
+                                            <div class="product-name">Puncture Kit</div>
+                                            <div class="product-price">£8</div>
+                                            <div class="product-description">Emergency repair</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Electronics -->
+                                <div class="category-section">
+                                    <h2>📱 Electronics & Tech</h2>
+                                    <div class="products">
+                                        <div class="product-item">
+                                            <div class="product-icon">📊</div>
+                                            <div class="product-name">Bike Computer</div>
+                                            <div class="product-price">£45 - £120</div>
+                                            <div class="product-description">GPS tracking</div>
+                                        </div>
+                                        <div class="product-item">
+                                            <div class="product-icon">📱</div>
+                                            <div class="product-name">Phone Mount</div>
+                                            <div class="product-price">£20</div>
+                                            <div class="product-description">Universal fit</div>
+                                        </div>
+                                        <div class="product-item">
+                                            <div class="product-icon">📊</div>
+                                            <div class="product-name">BT Speaker</div>
+                                            <div class="product-price">£35</div>
+                                            <div class="product-description">Waterproof</div>
+                                        </div>
+                                        <div class="product-item">
+                                            <div class="product-icon">📷</div>
+                                            <div class="product-name">Action Camera</div>
+                                            <div class="product-price">£150</div>
+                                            <div class="product-description">4K recording</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer -->
+                    <footer class="footer">
+                        <p>© 2025 Bike King Borders | All accessories come with manufacturer warranty | Free delivery over £50</p>
+                    </footer>
+                </div>
+            </div>
+            
+            <!-- MOBILE MOCKUP -->
+            <div class="device-frame mobile-frame">
+                <div class="device-label">📱 Mobile Version (375x667)</div>
+                <div class="screen">
+                    <!-- Header -->
+                    <header class="header">
+                        <div class="logo-area">
+                            <div class="logo-icon">
+                                <img class="logo-icon" src="../img/bike_logo.png" alt="Logo image">
+                            </div>
+                            <div class="logo-text">BIKE KING</div>
+                        </div>
+                        <div class="auth-buttons">
+                            <button class="btn btn-secondary">Login</button>
+                            <button class="btn btn-primary">☰</button>
+                        </div>
+                    </header>
+                    
+                    <!-- Page Header -->
+                    <section class="page-header">
+                        <h1>Accessories & Clothing</h1>
+                        <p>Everything for your ride</p>
+                    </section>
+                    
+                    <!-- Category Navigation -->
+                    <nav class="category-nav">
+                        <div class="category-buttons">
+                            <button class="category-btn active">🛡️ Safety</button>
+                            <button class="category-btn">🔧 Tools</button>
+                            <button class="category-btn">👕 Clothing</button>
+                            <button class="category-btn">📱 Tech</button>
+                        </div>
+                    </nav>
+                    
+                    <!-- Main Content -->
+                    <div class="main-content">
+                        <div class="accessories-grid">
+                            <!-- Safety Equipment -->
+                            <div class="category-section">
+                                <h2>🛡️ Safety Equipment</h2>
+                                <div class="products">
+                                    <div class="product-item">
+                                        <div class="product-icon">🪖</div>
+                                        <div class="product-name">Safety Helmet</div>
+                                        <div class="product-price">£45-89</div>
+                                    </div>
+                                    <div class="product-item">
+                                        <div class="product-icon">💡</div>
+                                        <div class="product-name">LED Light Set</div>
+                                        <div class="product-price">£25</div>
+                                    </div>
+                                    <div class="product-item">
+                                        <div class="product-icon">🔔</div>
+                                        <div class="product-name">Bicycle Bell</div>
+                                        <div class="product-price">£8</div>
+                                    </div>
+                                    <div class="product-item">
+                                        <div class="product-icon">🦺</div>
+                                        <div class="product-name">Reflective Vest</div>
+                                        <div class="product-price">£15</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Maintenance Tools -->
+                            <div class="category-section">
+                                <h2>🔧 Maintenance Tools</h2>
+                                <div class="products">
+                                    <div class="product-item">
+                                        <div class="product-icon">🔧</div>
+                                        <div class="product-name">Multi-tool Kit</div>
+                                        <div class="product-price">£25</div>
+                                    </div>
+                                    <div class="product-item">
+                                        <div class="product-icon">💨</div>
+                                        <div class="product-name">Bike Pump</div>
+                                        <div class="product-price">£18</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Cycling Clothing -->
+                            <div class="category-section">
+                                <h2>👕 Cycling Clothing</h2>
+                                <div class="products">
+                                    <div class="product-item">
+                                        <div class="product-icon">👕</div>
+                                        <div class="product-name">Cycling Jersey</div>
+                                        <div class="product-price">£35-65</div>
+                                    </div>
+                                    <div class="product-item">
+                                        <div class="product-icon">🩳</div>
+                                        <div class="product-name">Padded Shorts</div>
+                                        <div class="product-price">£45</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Electronics -->
+                            <div class="category-section">
+                                <h2>📱 Electronics</h2>
+                                <div class="products">
+                                    <div class="product-item">
+                                        <div class="product-icon">📊</div>
+                                        <div class="product-name">Bike Computer</div>
+                                        <div class="product-price">£45-120</div>
+                                    </div>
+                                    <div class="product-item">
+                                        <div class="product-icon">📱</div>
+                                        <div class="product-name">Phone Mount</div>
+                                        <div class="product-price">£20</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer -->
+                    <footer class="footer">
+                        <p style="font-size: 11px;">© 2025 Bike King Borders<br>Free delivery over £50</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
